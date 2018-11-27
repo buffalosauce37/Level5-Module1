@@ -20,7 +20,7 @@ public class ThreadPoolTest {
 
 	@Test
 	public void test() {
-		long total = 1000000000;
+		int total = 1073741824;
 		
 		ThreadPool tp = new ThreadPool(4);
 		char[] chars = new char[total];
@@ -28,9 +28,7 @@ public class ThreadPoolTest {
 		for(int i = 0; i < total; i++){
 			chars[i] = (char)(new Random().nextInt(25) + 97);
 		}
-		
-		long start = System.currentTimeMillis();
-		
+				
 		int count = (int) Math.sqrt(total);
 		
 		for(int i = 0; i < count; i++){
@@ -41,7 +39,8 @@ public class ThreadPoolTest {
 				}
 			});
 		}
-		
+
+		long start = System.currentTimeMillis();
 		
 		tp.start();
 		
@@ -50,10 +49,6 @@ public class ThreadPoolTest {
 		
 		for(char c : chars){
 			assertTrue(Character.isUpperCase(c));
-		}
-		
-		
+		}	
 	}
-	
-	
 }
