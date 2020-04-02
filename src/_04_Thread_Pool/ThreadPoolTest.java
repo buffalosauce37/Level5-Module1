@@ -43,7 +43,9 @@ public class ThreadPoolTest {
 		long start = System.currentTimeMillis();
 		
 		tp.start();
-		
+		for(int i = 0; i < total; i++){
+			System.out.println(chars[i]);
+		}
 		long end = System.currentTimeMillis() - start;
 		System.out.println("Total time: " + end);
 		
